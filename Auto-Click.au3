@@ -1,0 +1,24 @@
+#include <Misc.au3>
+
+HotKeySet("{ESC}","stop")
+HotKeySet("{x}", "spamleft")
+HotKeySet("{c}", "dummy")
+Global $left
+While 1
+    Sleep(1)
+WEnd
+Func spamleft()
+    $left = NOT $left
+    While $left
+		Sleep(1)
+        MouseClick ("left")
+		if @HotKeyPressed = "{c}" then ExitLoop
+    WEnd
+
+EndFunc
+func stop()
+    Exit
+endfunc
+
+Func dummy()
+EndFunc
